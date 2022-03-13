@@ -1,6 +1,37 @@
-<div class="flex justify-center items-center min-h-screen">
-  <%= button_to "Create a match",
+
+
+  <%= form_with model: @match, url: matches_path, method: :post do |form| %>
+    <div class="max-w-2xl mx-auto min-h-screen pt-32 px-2">
+
+      <% if @match.errors.any? %>
+        <div class="bg-yellow-700 rounded p-2 mb-4">
+          <p class="text-2xl font-semibold mb-2 text-white">There was a problem</p>
+          <ul>
+            <% @match.errors.each do |msg| %>
+              <a class="underline hover:no-underline text-white" href="#<%= msg.attribute.to_s %>">
+                <li class="text-2xl text-white"><%= msg.full_message %></li>
+              </a>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <%= form.label "Please enter competitor one's name", class: "text-white text-xl" %>
+        <%= form.text_field :competitor_one, class: 'border bg-white h-32 rounded p-2 text-4xl w-full text-center' %>
+      </div>
+      <div class="text-center mt-4">
+        <%= form.label "Please enter competitor two's name", class: "text-white text-xl" %>
+        <%= form.text_field :competitor_two, class: 'border bg-white h-32 rounded p-2 text-4xl w-full text-center' %>
+      </div>
+      <%= form.button class: "shadow bg-blue-600 hover:bg-blue-700 text-4xl text-white p-8 rounded w-full mt-8" do %>
+        <span class="show-when-enabled">Save</span>
+        <span class="show-when-disabled">Saving...</span>
+      <% end %>
+      </div>
+
+  <% end %>
+
+  <%#= button_to "Create a match",
                 matches_path,
                 method: :post,
                 class: "shadow bg-blue-600 hover:bg-blue-700 text-5xl text-white p-8 rounded" %>
-</div>

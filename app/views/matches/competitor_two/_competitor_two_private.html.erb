@@ -1,0 +1,87 @@
+<div class="flex w-full min-h-full text-white">
+  <div class="bg-gradient-to-t from-green-500 to-green-700 flex items-center justify-center flex-1 text-shadow relative">
+    <span class="text-12xl"><%= match.competitor_two.score.point %></span>
+    <div class="absolute left-1 top-12">
+      <div class="flex flex-col space-y-3">
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 2 }, increment: false },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          -2
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 3 }, increment: false },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          -3
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 4 }, increment: false },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          -4
+        <% end %>
+      </div>
+    </div>
+    <div class="absolute right-1 top-12">
+      <div class="flex flex-col space-y-3">
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 2 }, increment: true },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          +2
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 3 }, increment: true },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          +3
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { point: 4 }, increment: true },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          +4
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gradient-to-t from-yellow-500 to-yellow-600 flex items-center justify-center flex-1 text-shadow relative">
+    <span class="text-12xl"><%= match.competitor_two.score.advantage %></span>
+    <div class="absolute bottom-1">
+      <div class="flex justify-center items-center space-x-10">
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { advantage: 1 }, increment: false },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          -1
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { advantage: 1 }, increment: true },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          +1
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gradient-to-t from-red-500 to-red-700 flex items-center justify-center flex-1 text-shadow relative">
+    <span class="text-12xl"><%= match.competitor_two.score.penalty %></span>
+    <div class="absolute bottom-1">
+      <div class="flex justify-center items-center space-x-10">
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { penalty: 1 }, increment: false },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          -1
+        <% end %>
+        <%= button_to match_competitor_score_path(match, match.competitor_two, match.competitor_two.score),
+                      method: :patch,
+                      params: { type: { penalty: 1 }, increment: true },
+                      class: "bg-blue-600 text-lg hover:bg-gray-800 rounded p-4 text-white font-action" do %>
+          +1
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

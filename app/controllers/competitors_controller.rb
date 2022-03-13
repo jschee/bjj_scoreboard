@@ -7,12 +7,17 @@ class CompetitorsController < ApplicationController
   end
 
   def create
-    @competitor =  Competitor.create!(competitor_params.merge(match: @match))
-    if @competitor.save
-      if @match.competitors.size >= 2
-        redirect_to match_path(@match)
+    @competitor = Competitor.new(competitor_params.merge(match: @match))
+
+    respond_to do |format|
+      if @competitor.save
+        if @match.competitors.size >= 2
+          format.html { redirect_to match_path(@match) }
+        else
+          format.html { redirect_to new_match_competitor_path }
+        end
       else
-        redirect_to new_match_competitor_path
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end

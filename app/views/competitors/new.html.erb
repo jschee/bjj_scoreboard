@@ -1,12 +1,5 @@
 <div class="min-h-screen max-w-4xl mx-auto">
-<section class='flex flex-col justify-center w-full min-h-screen'>
-<%= form_with model: @competitor, url: match_competitors_path, method: :post do |form| %>
-  <%= content_tag("p", @competitor_label, class: "text-2xl text-center") %><br>
-  <%= form.text_field :name, class: 'border bg-white h-32 rounded p-2 text-4xl w-full' %><br>
-  <%= form.button class: "shadow bg-blue-600 hover:bg-blue-700 text-5xl text-white p-8 rounded w-full" do %>
-    <span class="show-when-enabled">Save</span>
-    <span class="show-when-disabled">Saving...</span>
-  <% end %>
-<% end %>
-</section>
+  <section class='flex flex-col justify-center w-full min-h-screen'>
+    <%= render 'form', locals: { competitor: @competitor } %>
+  </section>
 </div>

@@ -1,0 +1,10 @@
+<%= form_with model: competitor, url: match_competitor_path, method: :patch do |form| %>
+  <%= form.text_field :name, class: "border-b text-7xl text-white bg-transparent w-full focus:outline-none focus:text-white" %>
+  <div class="flex items-center mt-4 space-x-4">
+    <%= form.button class: "text-2xl text-white rounded px-4 pt-2 pb-1 border hover:bg-gray-800 text-center" do %>
+      <span class="show-when-enabled -ml-1">Save</span>
+      <span class="show-when-disabled">Saving...</span>
+    <% end %>
+    <%= link_to 'Cancel', match_path(competitor.match), class: "text-xl underline hover:no-underline" ,data: { turbo_frame: '_top' } %>
+  </div>
+<% end %>

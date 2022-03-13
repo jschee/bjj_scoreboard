@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,800&display=swap');
+
+@font-face {
+  font-family: 'snes';
+  src: url('assets/snes.ttf');
+}
+
+.font-action { font-family: 'Poppins', sans-serif; }
+
+.font-snes { font-family: 'snes' }
+
+.field_with_errors {
+  @apply bg-yellow-700 p-1 w-full
+}
+
+.field_with_errors label {
+  @apply text-white
+}
+
 button .show-when-enabled {
   display: initial;
 }
@@ -13,4 +32,30 @@ button[disabled] .show-when-enabled {
 }
 button[disabled] .show-when-disabled {
   display: initial;
+}
+
+.text-shadow {
+  text-shadow: #000 0px 0px 5px;
+}
+
+.text-10xl {
+  font-size:  10rem;
+  line-height: 1;
+}
+
+
+.text-11xl {
+  font-size:  12em;
+  line-height: 1;
+}
+
+.text-12xl {
+  font-size:  14em;
+  line-height: 1;
+}
+
+
+
+button:disabled {
+  @apply cursor-not-allowed bg-gray-200 text-black hover:bg-gray-200;
 }

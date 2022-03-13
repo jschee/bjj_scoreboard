@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "matches#new"
   resources :matches, only: [:new, :create, :show, :destroy] do
-    resources :competitors, only: [:new, :create, :edit, :update]
+    member do
+      get 'public'
+      post 'timer'
+    end
+    resources :competitors, only: [:new, :create, :edit, :update] do
+      resources :scores
+    end
   end
-  resources :scores
 end

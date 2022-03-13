@@ -1,0 +1,20 @@
+<%= form_with model: competitor, url: match_competitors_path, method: :post do |form| %>
+  <% if competitor.errors.any? %>
+    <div class="bg-yellow-700 rounded p-2 mb-4">
+      <p class="text-2xl font-semibold mb-2 text-white">There was a problem</p>
+      <ul>
+        <% competitor.errors.each do |msg| %>
+          <a class="underline hover:no-underline text-white" href="#<%= msg.attribute.to_s %>">
+            <li class="text-2xl text-white"><%= msg.full_message %></li>
+          </a>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= content_tag("p", competitor_label, class: "text-2xl text-center text-white") %><br>
+  <%= form.text_field :name, class: 'border bg-white h-32 rounded p-2 text-4xl w-full text-center' %><br>
+  <%= form.button class: "shadow bg-blue-600 hover:bg-blue-700 text-5xl text-white p-8 rounded w-full" do %>
+    <span class="show-when-enabled">Save</span>
+    <span class="show-when-disabled">Saving...</span>
+  <% end %>
+<% end %>

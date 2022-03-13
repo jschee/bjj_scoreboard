@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(match.competitor_two) do %>
+  <%= match.competitor_two.name %>
+  <%= link_to 'Edit name',
+              edit_match_competitor_path(match, match.competitor_two),
+              class: "text-white underline hover:no-underline text-xl" %>
+<% end %>
